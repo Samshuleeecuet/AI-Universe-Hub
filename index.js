@@ -1,4 +1,4 @@
-
+// Load Data
 
 const loadData=()=>{
     fetch("https://openapi.programming-hero.com/api/ai/tools")
@@ -6,6 +6,8 @@ const loadData=()=>{
         .then((data) => showData(data.data.tools.slice(0,6)))
 };
 loadData();
+
+// Show Data
 
 const showData=(data)=>{
     const container = document.getElementById('data-container');
@@ -15,7 +17,7 @@ const showData=(data)=>{
     data.forEach(element => {
         const div = document.createElement("div");
         div.innerHTML=`<div class="card w-96 bg-base-100 shadow-xl my-5">
-        <figure><img class="h-60" src="${element.image}" alt="Shoes" />    </figure>
+        <figure><img class="h-60" src="${element.image}" alt="" />    </figure>
         <div class="card-body">
            <h2 class="card-title">
              Features
@@ -46,29 +48,31 @@ const showData=(data)=>{
         };
         
     }); 
+    
 };
+
+// Show All Data
 
 function showAll(){
     fetch("https://openapi.programming-hero.com/api/ai/tools")
         .then((res)=> res.json())
         .then((data) => showData(data.data.tools))
-
 };
 
-
-const showDetails = (unique_id) => {
+// Show Details
+async function showDetails(unique_id){
     if(unique_id<10){
         unique_id = '0'+unique_id.toString(10);
     }else{
         unique_id = unique_id.toString(10);
     }
-    URL = `https://openapi.programming-hero.com/api/ai/tool/${unique_id}`;
-    fetch(URL)
-    .then((res) => res.json())
-    .then(data => displayDetails(data.data));
-   
+    let URL = `https://openapi.programming-hero.com/api/ai/tool/${unique_id}`;
+    let res = await fetch(URL);
+    let data = await res.json();
+    displayDetails(data.data);
 }
 
+//Display Details
 const displayDetails = (data) =>{
     let modalDescription = document.getElementById('modalDescription');
     modalDescription.innerText=`${data.description}`;
@@ -131,13 +135,16 @@ const displayDetails = (data) =>{
     modelImage.innerHTML=`
     <img src="${data.image_link[0]}" alt="${data.tool_name}" class="rounded-xl h3" />
     `
-    
+    let Accuracy = document.getElementById('acurecy');
+    if(data.accuracy.score == null){
+        Accuracy.style.display = "none" ;
+    }else{
+        Accuracy.style.display = "block" ;
+        Accuracy.innerHTML = `${data.accuracy.score * 100} % accuracy`;
+    }
+
 
    
 }
-
-
-
-
 
 showData();
