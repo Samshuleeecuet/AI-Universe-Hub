@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>AI Universe Hub</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+        body{
+            font-family: 'Work Sans', sans-serif;
+        }
+        .pricediv{
+            width: 20rem;
+            border: 2px solid orange;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding:15px;
+            margin:5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center mt-6">
+        <h3 class="font-bold text-3xl">AI Universe Hub</h3>
+        <button class="btn btn-outline btn-primary mt-5">Sort By Date</button>
+    </header>
+    <section id="data-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-5 ">
+        
+    </section>
+
+    <section>
+        <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+        <div class="modal">
+        <div class="modal-box w-11/12 h-11/12 max-h-5xl max-w-5xl">
+            <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <div class="flex justify-between p-6">
+                    <div class="card w-6/12 bg-base-100 shadow-xl border-2 border-yellow-500 bg-orange-100">
+                        <div class="card-body">
+                          <h2 class="card-title "id ="modalDescription"></h2>
+                          <div id="pricing" class="flex justify-between p-2 w-72" ">
+                            
+                            
+                          </div>
+                          <div class="flex justify-between flex-start w-full">
+                            <div >
+                                <h2 class="card-title">Features</h2>
+                                <ul id="modalfeature" style="list-style-type:circle">
+
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 class="card-title">Integrations</h2>
+                                <ul  id="modalintegretion" style="list-style-type:circle">
+
+                                </ul>
+                            </div>
+                          </div>
+                          
+                        </div>
+                    </div>
+                    <div class="indicator">
+                        <div class="indicator-item indicator-top" style="margin-right:100px; margin-top: 80px;">
+                          <button class="btn btn-danger">Apply</button>
+                        </div>
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <figure id="modelimage" class="px-10 pt-10">
+                          
+                        </figure>
+                        <div class="card-body items-center text-center">
+                          <h2 class="card-title" id="imageinput"></h2>
+                          <h5 id ="imageoutput"></h5>
+                        </div>
+                      </div>
+                
+            </div>
+            
+        </div>
+        </div>    
+
+    </section>
+
+
+    <footer class="text-center mt-6">
+        <button onclick="showAll()" class="btn btn-success">Show More</button>
+    </footer>
+
+    <script src="/index.js"></script>
+    <script src="/index.js"></script>
+</body>
+</html>
